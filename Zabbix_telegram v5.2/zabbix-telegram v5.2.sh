@@ -1,5 +1,5 @@
 #!/bin/bash
-#edit by daotran <daot096@gmail.com>----------------------------------------
+#edit by daotran <daot096@gmail.com----------------------------------------
 #test with zabbix 5.2: OK
 #edit USERNAME="Admin" ; PASSWORD="passadmin" ; ZBX_URL ; BOT_TOKEN
 #--------------------------------------------------------------------------
@@ -199,8 +199,8 @@ if [ $(($SEND_GRAPH)) -eq '1' ]; then
 #		then
 #       			${CURL} -k -s -S --max-time 5 -c ${COOKIE} -b ${COOKIE} --data-binary @${ZABBIXMSG} -X GET "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" >> $DEBUG_FILE
 #	fi
-	${CURL} -k -s -S --max-time 5 -X POST "https://api.telegram.org/bot$BOT_TOKEN/sendMessage?chat_id=$USER&text=$ICON-NEW-$ICON$STATUS $ICON_SEV$SEVERITY---$SUBJECT"
-	${CURL} -k -s -S --max-time 5 -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto" -F chat_id="${USER}" -F photo="@${PNG_PATH}" -F caption="$TEXT"
+	${CURL} -k -s -S --max-time 5 -X POST "https://api.telegram.org/bot$BOT_TOKEN/sendMessage?chat_id=$USER&text=$ICON*-NEW-*$ICON*$STATUS* $ICON_SEV*$SEVERITY**---$SUBJECT*&parse_mode=Markdown"
+	${CURL} -k -s -S --max-time 5 -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto" -F chat_id="${USER}" -F photo="@${PNG_PATH}" -F caption="$TEXT" -F parse_mode="Markdown"
 
 fi
 
